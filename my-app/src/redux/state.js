@@ -1,4 +1,3 @@
-
 let store = {
     _state: {
         profilePage: {
@@ -12,11 +11,31 @@ let store = {
         },
         messagesWindow: {
             userData: [
-                {name: 'Mike', id: 1, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHpRxV2tcx9wtnuGsnV2-RSAIUX2pF6fuXwg&usqp=CAU' },
-                {name: 'David', id: 2, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs6im7lK8hccrEWsTm2vcRpD1MAXQdySNklA&usqp=CAU'},
-                {name: 'Sara', id: 3, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQPyLojKz7-P2jf3ZYFiY39NT0X8CrFsqKdg&usqp=CAU'},
-                {name: 'Michele', id: 4, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC4jRg1btnvqAdcADoMgIw6RyQIXMOpZw-kg&usqp=CAU'},
-                {name: 'Diana', id: 5, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYC7L9L-A8G_Cb2y4I5jBBVEt-lD1tfxdX8Q&usqp=CAU'}
+                {
+                    name: 'Mike',
+                    id: 1,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHpRxV2tcx9wtnuGsnV2-RSAIUX2pF6fuXwg&usqp=CAU'
+                },
+                {
+                    name: 'David',
+                    id: 2,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs6im7lK8hccrEWsTm2vcRpD1MAXQdySNklA&usqp=CAU'
+                },
+                {
+                    name: 'Sara',
+                    id: 3,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQPyLojKz7-P2jf3ZYFiY39NT0X8CrFsqKdg&usqp=CAU'
+                },
+                {
+                    name: 'Michele',
+                    id: 4,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC4jRg1btnvqAdcADoMgIw6RyQIXMOpZw-kg&usqp=CAU'
+                },
+                {
+                    name: 'Diana',
+                    id: 5,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYC7L9L-A8G_Cb2y4I5jBBVEt-lD1tfxdX8Q&usqp=CAU'
+                }
             ],
             messages: [
                 {message: "Hi"},
@@ -27,43 +46,64 @@ let store = {
         },
         sidebar: {
             friends: [
-                {name: 'Mike', id: 1, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHpRxV2tcx9wtnuGsnV2-RSAIUX2pF6fuXwg&usqp=CAU' },
-                {name: 'David', id: 2, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs6im7lK8hccrEWsTm2vcRpD1MAXQdySNklA&usqp=CAU'},
-                {name: 'Sara', id: 3, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQPyLojKz7-P2jf3ZYFiY39NT0X8CrFsqKdg&usqp=CAU'},
-                {name: 'Michele', id: 4, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC4jRg1btnvqAdcADoMgIw6RyQIXMOpZw-kg&usqp=CAU'},
-                {name: 'Diana', id: 5, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYC7L9L-A8G_Cb2y4I5jBBVEt-lD1tfxdX8Q&usqp=CAU'}
+                {
+                    name: 'Mike',
+                    id: 1,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHpRxV2tcx9wtnuGsnV2-RSAIUX2pF6fuXwg&usqp=CAU'
+                },
+                {
+                    name: 'David',
+                    id: 2,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs6im7lK8hccrEWsTm2vcRpD1MAXQdySNklA&usqp=CAU'
+                },
+                {
+                    name: 'Sara',
+                    id: 3,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQPyLojKz7-P2jf3ZYFiY39NT0X8CrFsqKdg&usqp=CAU'
+                },
+                {
+                    name: 'Michele',
+                    id: 4,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC4jRg1btnvqAdcADoMgIw6RyQIXMOpZw-kg&usqp=CAU'
+                },
+                {
+                    name: 'Diana',
+                    id: 5,
+                    avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYC7L9L-A8G_Cb2y4I5jBBVEt-lD1tfxdX8Q&usqp=CAU'
+                }
             ]
         }
-    },
-    getState(){
-        return this._state
     },
     _callSubscriber() {
         console.log('hi')
     },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this._state.profilePage.postData.push(newPost)
-        this.updatePostText('')
-        this._callSubscriber(this._state)
-    },
-    updatePostText(newText) {
-        this._state.profilePage.newPostText = newText
-        this._callSubscriber(this._state)
+
+    getState() {
+        return this._state
     },
     subscribe(observer) {
         this._callSubscriber = observer
-    }
+    },
 
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this._state.profilePage.postData.push(newPost)
+            this.updatePostText = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === 'UPDATE-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber(this._state)
+        }
+    }
 }
 
 
 
 
-
-window.store = store
-export default store;
+    window.store = store
+    export default store

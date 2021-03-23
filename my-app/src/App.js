@@ -10,21 +10,20 @@ import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 
 
-
-
 const App = (props) => {
     return (
         <BrowserRouter>
-        <div className='app-wrapper'>
-            <Header/>
-            <Navbar friends={props.state.sidebar.friends}/>
-            <div className='app-wrapper-content'>
-                <Route path='/profile' render={ () => <Profile updatePostText={props.updatePostText} postData={props.state.profilePage} addPost={props.addPost}/>} />
-                <Route path='/messages' render={ () => <MessagesWindow userData={props.state.messagesWindow.userData} message={props.state.messagesWindow.messages}/>} />
-                <Route path='/news' render={ () => <News/>} />
-                <Route path='/music' render={ () => <Music/>} />
-                <Route path='/settings' render={ () => <Settings/>} />
-            </div>
+            <div className='app-wrapper'>
+                <Header/>
+                <Navbar friends={props.state.sidebar.friends}/>
+                <div className='app-wrapper-content'>
+                    <Route path='/profile' render={ () => <Profile postData={props.state.profilePage} dispatch={props.dispatch}/>} />
+                    <Route path='/messages' render={() => <MessagesWindow userData={props.state.messagesWindow.userData}
+                                                                          message={props.state.messagesWindow.messages}/>}/>
+                    <Route path='/news' render={() => <News/>}/>
+                    <Route path='/music' render={() => <Music/>}/>
+                    <Route path='/settings' render={() => <Settings/>}/>
+                </div>
             </div>
         </BrowserRouter>
     );
