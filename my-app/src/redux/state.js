@@ -7,7 +7,8 @@ let state = {
            {id: 2, message: 'This is my first react app', likesCount: 12},
            {id: 3, message: 'I am very happy to do this project', likesCount: 33},
            {id: 4, message: 'This posts will be update in short time', likesCount: 51}
-       ]
+       ],
+       newPostText: 'it-incubator'
    },
     messagesWindow: {
         userData: [
@@ -34,14 +35,21 @@ let state = {
    ]
     }
 }
+window.state = state
 
-export let addPost = (message) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        message: message,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
     state.profilePage.postData.push(newPost)
+    updatePostText('')
+    rerenderReactApp(state)
+}
+
+export let updatePostText = (newText) => {
+    state.profilePage.newPostText = newText
     rerenderReactApp(state)
 }
 export default state;

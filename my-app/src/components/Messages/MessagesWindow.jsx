@@ -4,7 +4,7 @@ import Dialog from "./Dialogs/Dialog";
 import Message from "./Message/Message";
 
 const MessagesWindow = (props) => {
-    let mappedDialogData = props.dialogData.map(dialog => <Dialog name={dialog.name} id={dialog.id} avatar={dialog.avatarSource}/>)
+    let mappedDialogData = props.userData.map(dialog => <Dialog name={dialog.name} id={dialog.id} avatar={dialog.avatarSource}/>)
     let mappedMessages = props.message.map(message => <Message message={message.message}/>)
 
 
