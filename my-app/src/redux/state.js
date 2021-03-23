@@ -1,4 +1,7 @@
-import rerenderReactApp from "../render";
+
+export let rerenderReactApp = () => {
+    console.log('hi')
+}
 
 let state = {
    profilePage: {
@@ -37,7 +40,7 @@ let state = {
 }
 window.state = state
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 5,
         message: state.profilePage.newPostText,
@@ -48,8 +51,13 @@ export let addPost = () => {
     rerenderReactApp(state)
 }
 
-export let updatePostText = (newText) => {
+export const updatePostText = (newText) => {
     state.profilePage.newPostText = newText
     rerenderReactApp(state)
 }
+
+export const subscribe = (observer) => {
+rerenderReactApp = observer
+}
+
 export default state;
