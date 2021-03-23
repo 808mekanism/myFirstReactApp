@@ -1,14 +1,16 @@
+import rerenderReactApp from "../render";
+
 let state = {
    profilePage: {
        postData: [
-           {message: 'Hi there', likesCount: 11},
-           {message: 'This is my first react app', likesCount: 12},
-           {message: 'I am very happy to do this project', likesCount: 33},
-           {message: 'This posts will be update in short time', likesCount: 51}
+           {id: 1, message: 'Hi there', likesCount: 11},
+           {id: 2, message: 'This is my first react app', likesCount: 12},
+           {id: 3, message: 'I am very happy to do this project', likesCount: 33},
+           {id: 4, message: 'This posts will be update in short time', likesCount: 51}
        ]
    },
     messagesWindow: {
-        dialogData: [
+        userData: [
             {name: 'Mike', id: 1, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHpRxV2tcx9wtnuGsnV2-RSAIUX2pF6fuXwg&usqp=CAU' },
             {name: 'David', id: 2, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs6im7lK8hccrEWsTm2vcRpD1MAXQdySNklA&usqp=CAU'},
             {name: 'Sara', id: 3, avatarSource: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQPyLojKz7-P2jf3ZYFiY39NT0X8CrFsqKdg&usqp=CAU'},
@@ -33,4 +35,13 @@ let state = {
     }
 }
 
+export let addPost = (message) => {
+    let newPost = {
+        id: 5,
+        message: message,
+        likesCount: 0
+    }
+    state.profilePage.postData.push(newPost)
+    rerenderReactApp(state)
+}
 export default state;

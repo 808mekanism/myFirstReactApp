@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './Post.module.css';
-import state from "../../../../redux/state";
+
 
 const Post = (props) => {
     return (
