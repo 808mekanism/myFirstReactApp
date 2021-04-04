@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import store  from "./redux/state";
+import store  from "./redux/redux-store";
 
 let rerenderReactApp = () => {
     ReactDOM.render(
@@ -14,7 +14,10 @@ let rerenderReactApp = () => {
 }
 
 rerenderReactApp(store.getState())
-store.subscribe(rerenderReactApp)
+store.subscribe(() => {
+    let state = store.getState()
+    rerenderReactApp(state)
+})
 
 
 
