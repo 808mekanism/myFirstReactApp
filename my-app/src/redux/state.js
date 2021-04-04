@@ -1,3 +1,7 @@
+import profilePageReducer from "./profile-page-reducer";
+import messageWindowReducer from "./message-window-reducer";
+import sideBarReducer from "./sidebar-reducer";
+
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
 const ADD_MESSAGE = 'ADD-MESSAGE'
@@ -92,58 +96,40 @@ let store = {
         this._callSubscriber = observer
     },
 
+
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            }
-            this._state.profilePage.postData.push(newPost)
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                message: this._state.messagesWindow.newMessageText
-            }
-            this._state.messagesWindow.messages.push(newMessage)
-            this._state.messagesWindow.newMessageText = ''
-            this._callSubscriber(this._state)
-        } else if (action.type === UPDATE_MESSAGE_TEXT) {
-            this._state.messagesWindow.newMessageText = action.newText
-            this._callSubscriber(this._state)
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action)
+        this._state.messagesWindow = messageWindowReducer(this._state.messagesWindow, action)
+        this._state.sidebar = sideBarReducer(this._state.sidebar, action)
+        this._callSubscriber(this._state)
+    }
+}
+
+
+    export const addPostActionCreator = () => ({
+        type: ADD_POST
+    })
+
+    export const updatePostTextActionCreator = (text) => {
+        return {
+            type: UPDATE_POST_TEXT,
+            newText: text
+
         }
     }
-}
 
+    export const addMessageActionCreator = () => ({
+        type: ADD_MESSAGE
+    })
 
-export const addPostActionCreator = () => ({
-    type: ADD_POST
-})
+    export const updateMessageTextActionCreator = (text) => {
+        return {
+            type: UPDATE_MESSAGE_TEXT,
+            newText: text
 
-export const updatePostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_POST_TEXT,
-        newText: text
-
+        }
     }
-}
-
-export const addMessageActionCreator = () => ({
-    type: ADD_MESSAGE
-})
-
-export const updateMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_MESSAGE_TEXT,
-        newText: text
-
-    }
-}
 
 
-window.store = store
-export default store
+    window.store = store
+    export default store
