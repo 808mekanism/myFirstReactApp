@@ -8,6 +8,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
+import MessagesWindowContainer from "./components/Messages/messagesWindowContainer";
 
 
 const App = (props) => {
@@ -17,10 +18,8 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/profile' render={ () => <Profile postData={props.state.profilePage.postData} dispatch={props.dispatch}/>} />
-                    <Route path='/messages' render={() => <MessagesWindow userData={props.state.messagesWindow.userData} dispatch={props.dispatch}
-                                                                          message={props.state.messagesWindow.messages}
-                                                                          newMessageText={props.state.messagesWindow.newMessageText}/>}/>
+                    <Route path='/profile' render={ () => <Profile store={props.store}/>} />
+                    <Route path='/messages' render={() => <MessagesWindowContainer store={props.store}/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
