@@ -15,7 +15,6 @@ const MyPostsContainer = (props) => {
     let onPostChange = (text) => {
         props.store.dispatch(updatePostTextActionCreator(text))
     }
-
     return (
         <MyPosts updateNewPostText={onPostChange} addPost={addPost}
                  postData={state.profilePage.postData}
