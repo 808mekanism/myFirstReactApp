@@ -9,4 +9,5 @@ let reducers = combineReducers({profilePage: profilePageReducer,
 
 let store = createStore(reducers)
 
+
 export default store
